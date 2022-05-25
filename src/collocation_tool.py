@@ -2,8 +2,10 @@
 Collocation tool
 """
 """ Import relevant packages """
+ # system
+import os
  # data analysis
-import math, os, spacy, re
+import math, spacy, re
 import pandas as pd
  # argument parser
 import argparse
@@ -12,7 +14,10 @@ import argparse
 # Argument parser
 def parse_args():
     ap = argparse.ArgumentParser()
-    # REQUIRED ARGUMENTS
+    
+    """
+    Required arguments
+    """
     # argument that decides whether the input is a single text or a whole directory
     ap.add_argument("-i",
                     "--input",
@@ -24,14 +29,17 @@ def parse_args():
                     type=str,
                     required = True,
                     help="The user-defined search term")
-    # OPTIONAL ARGUMENTS
-    # name of target text (if relevant) (default = "Anon_Clara_1864.txt")
+    
+    """
+    Optional arguments
+    """
+    # name of target text (if relevant)
     ap.add_argument("-x",
                     "--text_name",
                     type=str,
                     default="Anon_Clara_1864.txt",
                     help = "The name of the text you want to work with")
-    # window size argument (default = 5)
+    # window size argument
     ap.add_argument("-w",
                     "--window_size",
                     type=int,
@@ -43,10 +51,7 @@ def parse_args():
 # Read the text
 def read_text(text_name):
     # define filepath
-    filepath = os.path.join("in",
-                            "100_english_novels",
-                            "corpus",
-                            f"{text_name}")
+    filepath = os.path.join("in","100_english_novels","corpus",f"{text_name}")
     # read the text
     with open(filepath, "r") as file:
         text = file.read()
@@ -77,7 +82,7 @@ def collocation_tool(term, text_name, window_size):
         # lowercase
         lowercase = word.lower()
         # cleanup punctuation etc
-        cleaned = re.sub(r'[^\w\s]', '', lowercase)
+        cleaned = re.sub(r"[^\w\s]", "", lowercase)
         tokenized_text.append(cleaned)
     # create temporary list
     tmp = []
@@ -123,9 +128,9 @@ def collocation_tool(term, text_name, window_size):
     # create a pandas dataframe out of the results
     output_df = pd.DataFrame(out_list, columns = ["collocation", "collocate_count", "total_count", "MI"])
     # sort ascending by the MI score
-    output_df = output_df.sort_values(by=['MI'], ascending=False)
+    output_df = output_df.sort_values(by=["MI"], ascending=False)
     # remove ".txt" from the text name to use it for saving
-    outname = text_name.rsplit('.',1)[0]
+    outname = text_name.rsplit(".",1)[0]
     return output_df, outname
     
 
@@ -142,14 +147,14 @@ def main():
         # run the collocation tool function
         output_df, outname = collocation_tool(term, text_name, window_size)
         # save output CSV
-        output_df.to_csv(os.path.join("out", "user-defined",
-                                      f"collocates_{term}_{outname}_windowsize{window_size}.csv"), index=False)
+        output_df.to_csv(os.path.join("out","user-defined",f"collocates_{term}_{outname}_windowsize{window_size}.csv"), 
+                         index=False)
         # print message
         print("[INFO] FINISHED!")
     # otherwise, if the input is a directory
     elif args["input"] == "directory":
         # define filepath
-        filepath = os.path.join("in", "100_english_novels", "corpus")
+        filepath = os.path.join("in","100_english_novels","corpus")
         # get list of the contents of the directory
         text_names = os.listdir(filepath)
         # get list of TXT files
@@ -174,8 +179,8 @@ def main():
             # run the collocation tool
             output_df, outname = collocation_tool(term, text_name, window_size)
             # save output CSV
-            output_df.to_csv(os.path.join("out", "all", 
-                                          f"collocates_{term}_{outname}_windowsize{window_size}.csv"), index=False)
+            output_df.to_csv(os.path.join("out","all",f"collocates_{term}_{outname}_windowsize{window_size}.csv"),
+                             index=False)
             # print message
             print(f"[INFO] {(counter):03}/{count_texts} - {text_name}")
         # when everything has run, print final message

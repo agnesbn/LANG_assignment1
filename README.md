@@ -40,6 +40,8 @@ python -m spacy download en_core_web_sm
 ```
 
 ### Get the data
+Download the data from: https://github.com/computationalstylistics/100_english_novels.
+Make sure the path from `LANG_assignment1` to the data is `in/100_english_novels/corpus`.
 
 ### Main task
 

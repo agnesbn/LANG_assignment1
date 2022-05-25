@@ -2,8 +2,10 @@
 Collocation tool
 """
 """ Import relevant packages """
+ # data analysis
 import math, os, spacy, re
 import pandas as pd
+ # argument parser
 import argparse
 
 """ Basic functions """

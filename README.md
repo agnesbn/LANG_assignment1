@@ -52,27 +52,27 @@ python -m spacy download en_core_web_sm
 ### Main task
 Make sure your current directory is the `LANG_assignment1` folder. Then from the command line, run:
 ```
-python src/collocation_tool.py --input single_file --term <USER-DEFINED TERM> (--text_name <TEXT> --window_size <USER-DEFINED WINDOW SIZE>)
+python src/collocation_tool.py --input single_file --term <TERM> (--text_name <TEXT> --window_size <WINDOW SIZE>)
 ```
 __Required input:__
-- `<USER-DEFINED TERM>`: the target word or user-defined search term, you wish to work with. I used the word `man`.
+- `<TERM>`: the target word or user-defined search term, you wish to work with. I used the word `man`.
 
 __Optional input:___
 - `<TEXT>`: the text you want to use for the collocational analysis. The default is the first text in the data, `Anon_Clara_1864.txt`.
-- `<USER-DEFINED WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after.
+- `<WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after.
 
 The results will be saved in [`out/user-defined`](https://github.com/agnesbn/LANG_assignment1/tree/main/out/user-defined).
 
 ### Bonus task
 Make sure your current directory is the `LANG_assignment1` folder. Then from the command line, run:
 ```
-python src/collocation_tool.py --input directory --term <USER-DEFINED TERM> (--window_size <USER-DEFINED WINDOW SIZE>)
+python src/collocation_tool.py --input directory --term <TERM> (--window_size <WINDOW SIZE>)
 ```
 __Required input:__
-- `<USER-DEFINED TERM>`: the target word or user-defined search term, you wish to work with. I used the word `man`.
+- `<TERM>`: the target word or user-defined search term, you wish to work with. I used the word `man`.
 
 __Optional input:__
-- `<USER-DEFINED WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after.
+- `<WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after.
 
 The results will be saved in [`out/all`](https://github.com/agnesbn/LANG_assignment1/tree/main/out/all).
 

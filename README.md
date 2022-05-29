@@ -21,7 +21,7 @@ For this assignment, you will write a small Python program to perform collocatio
 
 ## 3. Methods
 ### Main task
-The `collocation_tool.py` script reads a given text and tokenises it. Then taking a user-defined window size, it extracts all the words which appear ± the window size from a user-defined search term. It then calculates the mutual information score between the contexts words and the given search term. Finally, the information (i.e. the mutual information score, the number of times the context word occurs as a collocate, and the number of times it occurs in general in the text) is converted into a `pandas` dataframe and saved as a CSV in which the results are sorted in descending order by the mutual information score.
+The [`collocation_tool.py`](https://github.com/agnesbn/LANG_assignment1/blob/main/src/collocation_tool.py) script reads a given text and tokenises it. Then taking a user-defined window size, it extracts all the words which appear ± the window size from a user-defined search term. It then calculates the mutual information score between the contexts words and the given search term. Finally, the information (i.e. the mutual information score, the number of times the context word occurs as a collocate, and the number of times it occurs in general in the text) is converted into a `pandas` dataframe and saved as a CSV in which the results are sorted in descending order by the mutual information score.
 
 ### Bonus task
 As for the bonus tasks, I managed to do 1/3. By tweaking the code from the main task, I allowed for the user to specify whether they want to run the collocational analysis on a single file or the whole dataset, saving one output CSV per novel.

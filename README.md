@@ -2,28 +2,26 @@
 The portfolio for __Language Analytics S22__ consists of 5 projects (4 class assignments and 1 self-assigned project). This is the __first assignment__ in the portfolio. 
 
 ## 1. Contribution
-The initial assignment was made partly in collaboration with others from the course, but the final code is my own. I made several adjustments to the code since I first handed it in.
-
-After the initial hand-in, Ross posted a [possible solution](https://github.com/CDS-AU-DK/cds-language/blob/main/notebooks/assignment1_possible_solution.ipynb) which I found useful in writing the code for the final portfolio.
+The initial assignment was made partly in collaboration with others from the course, but the final code is my own. I made several adjustments to the code since I first handed it in. However, I found this [possible solution](https://github.com/CDS-AU-DK/cds-language/blob/main/notebooks/assignment1_possible_solution.ipynb) posted by Ross after the initial hand-in useful in writing the code for the final portfolio.
 
 ## 2. Assignment description by Ross
 ### Main task
 For this assignment, you will write a small Python program to perform collocational analysis using the string processing and NLP tools you've already encountered. Your script should do the following:
 
-- Take a user-defined search term and a user-defined window size.
-- Take one specific text which the user can define.
-- Find all the context words which appear ± the window size from the search term in that text.
-- Calculate the mutual information score for each context word.
+- Take a __user-defined search term__ and a __user-defined window size__.
+- Take one __specific text__ which the user can define.
+- Find all the __context words__ which appear ± the window size from the search term in that text.
+- Calculate the __mutual information score__ for each context word.
 - Save the results as a CSV file with (at least) the following columns: the collocate term; how often it appears as a collocate; how often it appears in the text; the mutual information score.
 
 ### Bonus task
-1. Create a program which does the above for every novel in the corpus, saving one output CSV per novel
-2. Create a program which does this for the whole dataset, creating a CSV with one set of results, showing the mutual information scores for collocates across the whole set of texts
-3. Create a program which allows a user to define a number of different collocates at the same time, rather than only one.
+1. Create a program which does the above for __every novel in the corpus__, saving one output CSV per novel
+2. Create a program which does this for the __whole dataset__, creating a CSV with one set of results, showing the mutual information scores for collocates across the whole set of texts
+3. Create a program which allows a user to define __a number of different collocates at the same time__, rather than only one.
 
 ## 3. Methods
 ### Main task
-
+The `collocation_tool.py` script reads a given text and tokenises it. Then taking a user-defined window size, it extracts all the words which appear ± the window size from a user-defined search term. It then calculates the mutual information score between the contexts words and the given search term. Finally, the information (i.e. the mutual information score, the number of times the context word occurs as a collocate, and the number of times it occurs in general in the text) is converted into a `pandas` dataframe and saved as a CSV in which the results are sorted in descending order by the mutual information score.
 
 ### Bonus task
 As for the bonus tasks, I managed to do 1/3. By tweaking the code from the main task, I allowed for the user to specify whether they want to run the collocational analysis on a single file or the whole dataset, saving one output CSV per novel.
@@ -37,9 +35,7 @@ Before running the script, you have to install the relevant packages. To do this
 ```
 sudo apt update
 pip install --upgrade pip
-# required packages
 pip install pandas numpy spacy tqdm spacytextblob
-# install spacy model
 python -m spacy download en_core_web_sm
 ```
 
@@ -59,7 +55,7 @@ __Required input:__
 
 __Optional input:___
 - `<TEXT>`: the text you want to use for the collocational analysis. The default is the first text in the data, `Anon_Clara_1864.txt`.
-- `<WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after.
+- `<WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after the search term.
 
 The results will be saved in [`out/user-defined`](https://github.com/agnesbn/LANG_assignment1/tree/main/out/user-defined).
 
@@ -72,8 +68,9 @@ __Required input:__
 - `<TERM>`: the target word or user-defined search term, you wish to work with. I used the word `man`.
 
 __Optional input:__
-- `<WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after.
+- `<WINDOW SIZE>`: the desired number of context words before and after your target word. The default is `5` – so five words before and five words after the search term.
 
 The results will be saved in [`out/all`](https://github.com/agnesbn/LANG_assignment1/tree/main/out/all).
 
 ## 5. Discussion of results
+For an in discussion of the results, 

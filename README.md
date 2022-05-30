@@ -24,9 +24,9 @@ For this assignment, you will write a small Python program to perform collocatio
 The [`collocation_tool.py`](https://github.com/agnesbn/LANG_assignment1/blob/main/src/collocation_tool.py) script reads a given text and tokenises it. Then taking a user-defined window size, it extracts all the words which appear ± the window size from a user-defined search term. It then calculates the mutual information score between the contexts words and the given search term. Finally, the information (i.e. the mutual information score, the number of times the context word occurs as a collocate, and the number of times it occurs in general in the text) is converted into a `pandas` dataframe and saved as a CSV in which the results are sorted in descending order by the mutual information score.
 
 ### Bonus task
-As for the bonus tasks, I managed to do 1/3. By tweaking the code from the main task, I allowed for the user to specify whether they want to run the collocational analysis on a single file or the whole dataset, saving one output CSV per novel.
+By tweaking the code from the main task, I allowed for the user to specify whether they want to run the collocational analysis on a single file or the whole dataset, saving one output CSV per novel. The whole directory of edgelists is then looped over, the collocational analysis is done for each list, and an output CSV is saved for each novel.
 
-I did not have time to finish the other two but the provided code could be used as a stepping stone towards solving these problems.
+I did not have time to finish the other two bonus tasks, but the provided code could be used as a stepping stone towards solving these problems.
 
 
 ## 4. Usage
@@ -73,4 +73,4 @@ __Optional input:__
 The results will be saved in [`out/all`](https://github.com/agnesbn/LANG_assignment1/tree/main/out/all).
 
 ## 5. Discussion of results
-The results can be seen in the two output folders in [`out`](https://github.com/agnesbn/LANG_assignment1/tree/main/out). At the top of each output CSV is the word with the highest mutual information score. An in-depth analysis of the results is beyond the scope of this exam but I noticed that many of the high-scoring words were feminine, like [`she`, `mrs`, `mother`](https://github.com/agnesbn/LANG_assignment1/blob/main/out/all/collocates_man_Anon_Clara_1864_windowsize5.csv), [`prioress`, `sister`](https://github.com/agnesbn/LANG_assignment1/blob/main/out/all/collocates_man_Barclay_Ladies_1917_windowsize5.csv), [`miss`](https://github.com/agnesbn/LANG_assignment1/blob/main/out/all/collocates_man_Barclay_Postern_1911_windowsize5.csv) etc. but this was not the case for all texts.
+The results can be seen in the two output folders in [`out`](https://github.com/agnesbn/LANG_assignment1/tree/main/out). At the top of each output CSV is the word with the highest mutual information score. An in-depth analysis of the results is beyond the scope of this exam but I noticed that many of the high-scoring collocates were feminine, like [`she`, `mrs`, `mother`](https://github.com/agnesbn/LANG_assignment1/blob/main/out/all/collocates_man_Anon_Clara_1864_windowsize5.csv), [`prioress`, `sister`](https://github.com/agnesbn/LANG_assignment1/blob/main/out/all/collocates_man_Barclay_Ladies_1917_windowsize5.csv), [`miss`](https://github.com/agnesbn/LANG_assignment1/blob/main/out/all/collocates_man_Barclay_Postern_1911_windowsize5.csv) etc. but this was not the case for all texts.

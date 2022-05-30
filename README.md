@@ -48,7 +48,7 @@ python -m spacy download en_core_web_sm
 ### Main task
 Make sure your current directory is the `LANG_assignment1` folder. Then from the command line, run:
 ```
-python src/collocation_tool.py --input single_file --term <TERM> (--text_name <TEXT> --window_size <WINDOW SIZE>)
+python src/collocation_tool.py --input single_text --term <TERM> (--text_name <TEXT> --window_size <WINDOW SIZE>)
 ```
 __Required input:__
 - `<TERM>`: the target word or user-defined search term, you wish to work with. I used the word `man`.
